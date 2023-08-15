@@ -25,8 +25,7 @@ public class UserServiceV1 {
     }
 
     public void updateUser(UserUpdateRequest request) {
-        boolean isUserNotExist = userJdbcRepository.isUserNotExist(request.getId());
-        if (isUserNotExist) {
+        if (userJdbcRepository.isUserNotExist(request.getId())) {
             throw new IllegalArgumentException();
         }
 
@@ -34,8 +33,7 @@ public class UserServiceV1 {
     }
 
     public void deleteUser(String name) {
-        boolean isUserNotExist = userJdbcRepository.isUserNotExist(name);
-        if (isUserNotExist) {
+        if (userJdbcRepository.isUserNotExist(name)) {
             throw new IllegalArgumentException();
         }
 
